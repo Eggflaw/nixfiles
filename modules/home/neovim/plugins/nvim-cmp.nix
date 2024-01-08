@@ -2,7 +2,7 @@
   programs.nixvim.plugins = {
     nvim-cmp = {
       enable = true;
-      mappingPresets = "[ \"insert\" ]";
+      mappingPresets = [ "insert" ];
       autoEnableSources = true;
     };
 
