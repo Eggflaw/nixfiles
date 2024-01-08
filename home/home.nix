@@ -22,12 +22,13 @@
    neofetch
    vinegar
    lutris
-   ventoy
+   ventoy-full
    winePackages.unstableFull
 
    wget
    pciutils
    socat
+   gh
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

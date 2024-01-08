@@ -1,6 +1,7 @@
 { pkgs, inputs, ...}:
 
 {
+  #TODO: Finish Neovim config
   imports = [ 
    	inputs.nixvim.homeManagerModules.nixvim 
     ./plugins
