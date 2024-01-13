@@ -1,0 +1,16 @@
+# See how to configure Vinegar on the documentation website:
+# https://vinegarhq.github.io/Configuration
+wineroot="/home/eggflaw/.local/share/lutris/runners/wine/wine-tkg-valve-exp-bleeding-8.0.71536.20231229-327-x86_64.pkg/"
+
+[player]
+#launcher="gamescope --force-grab-cursor"
+
+[player.env]
+MANGOHUD='0'
+
+[studio]
+
+
+[splash]
+enabled = false
+

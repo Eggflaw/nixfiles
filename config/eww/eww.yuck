@@ -1,0 +1,130 @@
+
+; SECTION: Widgets
+
+  ; SECTION: Right Widgets
+  (defwidget launcher []
+    (button :class "launcher_icon"
+      :halign "start"
+  :onclick "rofi -show drun"
+      :timeout "30s"
+     "" 
+     )
+  )
+
+(deflisten active-workspace `python3 scripts/active-workspace.py`)
+
+(defwidget workspaces []
+  (box 
+    (for entry in "[1,2,3,4,5,6]" 
+      (button :onclick "hyprctl dispatch workspace ${entry} " 
+        {active-workspace == entry ? '●' : '○'}
+        )
+      )
+    ) 
+)
+
+  ;SECTION: Left Widgets
+  (defpoll time 
+    :interval "1s"
+    :initial "Sun 0000/0/00 00:00"
+    `date "+%a %Y/%m/%d %R"`
+  )
+
+  (defvar toggle_calendar false)
+
+  (defwidget clock []
+    (button 
+      :onclick "scripts/toggle-calendar.sh ${toggle_calendar}"
+      time
+      )
+  )
+
+  (defvar toggle_power false)
+
+
+  (defwidget power_button []
+    (button 
+      :class "power_button"
+      :onclick "scripts/toggle-power.sh ${toggle_power}"
+      "⏻"  
+      )
+  )
+
+  (defwidget power_menu []
+    (box 
+      :class "power_menu"
+      :orientation "v"
+      (for option in ""
+        (button
+          "${option}"
+          )
+        )
+      )
+  )
+
+
+
+; SECTION: Bar
+(defwidget bar []
+  (centerbox :class "bar" :orientation "h"
+    ; NOTE: Start
+    (box :orientation "h" :space-evenly false :spacing 1
+      (launcher)
+      (workspaces)
+    )
+    
+    ; NOTE: Center
+    (box :orientation "h" :space-evenly false :spacing 1 
+      
+      )
+
+    ; NOTE: End
+    (box :orientation "h" :halign "end" :space-evenly false :spacing 1
+      (clock)
+      (power_button)
+      )
+  )
+)
+
+; SECTION: Windows
+(defwindow bar
+  :monitor 0
+  :geometry (geometry 
+              :x "0%"
+              :y "10px"
+              :width "95%"
+              :height "40px"
+              :anchor "top center"
+            )
+  :stacking "fg"
+  :exclusive true
+  (bar)
+  )
+
+(defwindow calendar_window
+  :monitor 0
+  :geometry (geometry
+              :x "50px"
+              :y "10px"
+              :width "15%"
+              :height "15%"
+              :anchor "top right"
+              )
+  :stacking "overlay"
+  :exclusive false
+  (calendar)
+)
+
+(defwindow power_window
+  :monitor 0
+  :geometry (geometry
+              :x "50px"
+              :y "10px"
+              :width "15%"
+              :height "15%"
+              :anchor "top right"
+              )
+  :stacking "overlay"
+  :exclusive false
+  (power_menu)
+)

@@ -1,0 +1,22 @@
+* { 
+  font-family: JetBrainsMono Nerd Font;
+  font-weight: bold;
+}
+
+// NOTE: Color scheme  
+@import "colors/catppuccin-mocha.scss"; 
+
+.bar {
+  background-color: $bg;
+  padding: .3rem;
+  border-radius: 8px;
+  margin: 0 2px 0 2px
+}
+
+.launcher_icon {
+  color: $blue; 
+  font-size: 1.7em;
+
+  padding: 0 1rem 0 0.5rem;
+}
+
