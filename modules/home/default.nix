@@ -1,7 +1,7 @@
 
 {
   imports = [
-    ./neovim
+    ./nvim
     ./kitty.nix
     ./git.nix
     ./starship.nix
