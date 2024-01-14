@@ -5,6 +5,13 @@
   imports = [
    outputs.homeModules
   ];
+
+
+  nixpkgs.overlays = [
+    outputs.overlays.additions
+    outputs.overlays.modifications
+  ];
+
   nixpkgs.config.allowUnfreePredicate = _: true;
 
   home.username = "eggflaw";

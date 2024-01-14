@@ -1,6 +1,0 @@
-
-{
-  imports = [
-    ./nvim-cmp.nix
-  ];
-}

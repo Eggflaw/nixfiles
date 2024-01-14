@@ -1,7 +1,7 @@
 
 {
   imports = [
-    ./nvim
+    ./nvim.nix
     ./kitty.nix
     ./git.nix
     ./starship.nix

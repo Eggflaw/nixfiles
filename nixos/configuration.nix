@@ -18,11 +18,11 @@
 		efiSysMountPoint = "/boot/efi";
 	};
 	grub = {
-         enable = true;
-   	 efiSupport = true;
-	 useOSProber = true;
+   enable = true;
+   efiSupport = true; 
 	 device = "nodev";
-	};
+   useOSProber = true;
+	}; 
 };
 
   networking.hostName = "nixos"; # Define your hostname.
