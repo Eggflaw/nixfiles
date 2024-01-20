@@ -9,7 +9,9 @@ local servers = { "html",
                   "tsserver",
                   "clangd",
                   "pylsp",
-                  "rust_analyzer" }
+                  "rust_analyzer",
+                  "nil_ls"
+   }
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {

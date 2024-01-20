@@ -5,5 +5,6 @@
     ./kitty.nix
     ./git.nix
     ./starship.nix
+    ./bash.nix
   ];
 }

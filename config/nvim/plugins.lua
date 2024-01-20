@@ -63,6 +63,8 @@ local plugins = {
         "rust",
 
         "python",
+
+        "nix",
       }
     },
   },

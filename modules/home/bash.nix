@@ -1,10 +1,10 @@
 
 {
-  program.bash = {
+  programs.bash = {
     enable = true;
     enableCompletion = true;
-    bashrcExtra = ''
-    '';
+    #initExtra = ''eval "$(starship init bash)"'';
   };
+ 
 }
 
