@@ -8,12 +8,17 @@
   };
 
   xdg.configFile."nvim" = {
-    source = "${pkgs.nvchad}";
+    source = "${pkgs.vimPlugins.nvchad}";
+    recursive = true;
+  };
+
+  xdg.configFile."nvim/lua/custom" = {
+    source = ../../config/nvim;
     recursive = true;
   };
  
   home.packages = with pkgs; [
-    nvchad
+    vimPlugins.nvchad
   ];
 
   programs.neovim.extraPackages = with pkgs; [
