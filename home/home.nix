@@ -28,7 +28,7 @@
    steam
    spotify
    neofetch
-   vinegar
+   
    lutris
    ventoy-full
    winePackages.unstableFull
