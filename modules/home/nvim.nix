@@ -1,4 +1,4 @@
-{ pkgs, inputs, outputs, ...}:
+{ pkgs, config, ...}:
 
 {
   programs.neovim = {
@@ -15,18 +15,39 @@
   xdg.configFile."nvim/lua/custom" = {
     source = ../../config/nvim;
     recursive = true;
-  };
- 
-  home.packages = with pkgs; [
-    vimPlugins.nvchad
-  ];
+  }; 
 
   programs.neovim.extraPackages = with pkgs; [
-    gcc
-    nodejs_20
-    cargo
+    lua-language-server
+    stylua
+    shfmt
+
     ripgrep
     wl-clipboard
-    xclip
+    xclip 
+    
+    gcc
+
+    # Python 
+    python311Packages.python-lsp-server
+
+    # nix 
+    nil 
   ];
+
+  home.packages = with pkgs; [
+   (writeShellScriptBin "clean-nvim" ''
+      rm -rf ${config.xdg.dataHome}/nvim
+      rm -rf ${config.xdg.stateHome}/nvim
+      rm -rf ${config.xdg.cacheHome}/nvim
+    '') 
+   (writeShellScriptBin "clean-nvim-full" ''
+      rm -rf ${config.xdg.dataHome}/nvim
+      rm -rf ${config.xdg.stateHome}/nvim
+      rm -rf ${config.xdg.cacheHome}/nvim
+      rm -rf ${config.xdg.configHome}/nvim
+   '')
+  ];
+
+  
 }
