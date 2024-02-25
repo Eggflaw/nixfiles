@@ -18,18 +18,27 @@
   }; 
 
   programs.neovim.extraPackages = with pkgs; [
-    lua-language-server
-    stylua
     shfmt
-
     ripgrep
     wl-clipboard
     xclip 
     
+    # Used for treesitter
     gcc
+    
+    # Lua
+    lua-language-server
+    stylua 
+    selene
 
     # Python 
     python311Packages.python-lsp-server
+
+    # Javascript
+    prettierd
+
+    # Rust
+    rust-analyzer
 
     # nix 
     nil 
