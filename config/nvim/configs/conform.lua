@@ -3,12 +3,14 @@ local options = {
 
 	formatters_by_ft = {
 		lua = { "stylua" },
+		luau = { "stylua" },
 
 		javascript = { "prettierd" },
 		css = { "prettierd" },
 		html = { "prettierd" },
 
 		sh = { "shfmt" },
+		nix = { "alejandra" },
 	},
 
 	format_on_save = {

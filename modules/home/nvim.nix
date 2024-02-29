@@ -1,6 +1,15 @@
-{ pkgs, config, ...}:
-
 {
+  pkgs,
+  config,
+  ...
+}: let
+  luau-parser = pkgs.fetchFromGitHub {
+    owner = "polychromatist";
+    repo = "tree-sitter-luau";
+    rev = "34937d73e58bac6aede975c1e30745e74e19feb4";
+    hash = "sha256-iSDOj0coQUkKWl7yIFTUQHH7gvgKQKHZVWSbieadlv4=";
+  };
+in {
   programs.neovim = {
     enable = true;
     vimAlias = true;
@@ -15,23 +24,29 @@
   xdg.configFile."nvim/lua/custom" = {
     source = ../../config/nvim;
     recursive = true;
-  }; 
+  };
+
+  home.file."Downloads/tree-sitter-luau" = {
+    source = luau-parser;
+    recursive = true;
+  };
 
   programs.neovim.extraPackages = with pkgs; [
     shfmt
     ripgrep
     wl-clipboard
-    xclip 
-    
+    xclip
+    unzip
+
     # Used for treesitter
     gcc
-    
+
     # Lua
     lua-language-server
-    stylua 
+    stylua
     selene
 
-    # Python 
+    # Python
     python311Packages.python-lsp-server
 
     # Javascript
@@ -40,23 +55,22 @@
     # Rust
     rust-analyzer
 
-    # nix 
-    nil 
+    # nix
+    nil
+    alejandra
   ];
 
   home.packages = with pkgs; [
-   (writeShellScriptBin "clean-nvim" ''
+    (writeShellScriptBin "clean-nvim" ''
       rm -rf ${config.xdg.dataHome}/nvim
       rm -rf ${config.xdg.stateHome}/nvim
       rm -rf ${config.xdg.cacheHome}/nvim
-    '') 
-   (writeShellScriptBin "clean-nvim-full" ''
+    '')
+    (writeShellScriptBin "clean-nvim-full" ''
       rm -rf ${config.xdg.dataHome}/nvim
       rm -rf ${config.xdg.stateHome}/nvim
       rm -rf ${config.xdg.cacheHome}/nvim
       rm -rf ${config.xdg.configHome}/nvim
-   '')
+    '')
   ];
-
-  
 }

@@ -1,9 +1,10 @@
 {
- imports = [
-   ./nvidia.nix
-   ./ibus.nix
-   ./ios.nix
-   ./flatpak.nix
-   ./nix-ld.nix
- ];
+  imports = [
+    ./nvidia.nix
+    ./ibus.nix
+    ./ios.nix
+    ./flatpak.nix
+    ./nix-ld.nix
+    ./virtualisation.nix
+  ];
 }

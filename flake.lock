@@ -1,5 +1,25 @@
 {
   "nodes": {
+    "NvChad": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1709026717,
+        "narHash": "sha256-FvW9CCl0aBSaeqtH2SPtF1h81m+ptpEhhr9nBptVh+I=",
+        "owner": "NvChad",
+        "repo": "nix",
+        "rev": "ad07ca3378bc563563835c1373744eba8d513dec",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NvChad",
+        "repo": "nix",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -38,6 +58,7 @@
     },
     "root": {
       "inputs": {
+        "NvChad": "NvChad",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs"
       }

@@ -11,16 +11,16 @@
       while IFS= read lspci; do
        gpus+=("$lspci")
        echo "  $((++i)). $lspci"
-      one < <(echo "$lspci")
+      done < <(echo "$lspci")
 
       echo ""
 
       while [ -z "$gpuchoice" ]; do
-        read -erp ">> Number of GPU to pass to WayDroid (1-$\{#gpus[@]}): " ans
-        if [[ "$ans" =~ [0-9]+ && $ans -ge 1 && $ans -le $\{#gpus[@]} ]]; then
-       		gpuchoice="$\{gpus[$((ans-1))]%% *}" # e.g. "26:00.0"
+        read -erp ">> Number of GPU to pass to WayDroid (1-''${#gpus[@]}): " ans
+        if [[ "$ans" =~ [0-9]+ && $ans -ge 1 && $ans -le ''${#gpus[@]} ]]; then
+       		gpuchoice="''${gpus[$((ans-1))]%% *}" # e.g. "26:00.0"
        	fi
-      one
+      done
 
       echo ""
       echo "Confirm that these belong to your GPU:"
@@ -41,6 +41,7 @@
        sed -i '/dri/d' /var/lib/waydroid/lxc/waydroid/config_nodes
        echo "lxc.mount.entry = /dev/dri/$card dev/dri/card0 none bind,create=file,optional 0 0" >> /var/lib/waydroid/lxc/waydroid/config_nodes
        echo "lxc.mount.entry = /dev/dri/$rendernode dev/dri/renderD128 none bind,create=file,optional 0 0" >> /var/lib/waydroid/lxc/waydroid/config_nodes
+
     '')
   ];
 }
