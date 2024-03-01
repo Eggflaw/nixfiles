@@ -7,5 +7,6 @@
     ./starship.nix
     ./bash.nix
     ./roblox-tools
+    ./desktop_entries.nix
   ];
 }

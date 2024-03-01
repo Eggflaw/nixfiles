@@ -13,7 +13,7 @@ rustPlatform.buildRustPackage rec {
     owner = "UpliftGames";
     repo = pname;
     rev = "v${version}";
-    hash = "sha256-hSFrITT2I/cruGciYXCCKBpRrn/udrhVwBjbNeoSQ78=";
+    hash = "sha256-lbEUj6iWwm3KtfUwNkJf8cSjXMQ4Mki/jAqQavDajUA=";
   };
 
   cargoLock = {
