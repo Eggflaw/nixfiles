@@ -6,5 +6,6 @@
     ./flatpak.nix
     ./nix-ld.nix
     ./virtualisation.nix
+    ./plasma.nix
   ];
 }

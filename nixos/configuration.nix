@@ -1,29 +1,32 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ inputs, outputs, config, pkgs, ... }:
-
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      outputs.nixosSystemModules
-    ];
+  inputs,
+  outputs,
+  config,
+  pkgs,
+  ...
+}: {
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    outputs.nixosSystemModules
+  ];
 
   # Bootloader.
   boot.loader = {
-  	efi = {
-		canTouchEfiVariables = true;
-		efiSysMountPoint = "/boot/efi";
-	};
-	grub = {
-   enable = true;
-   efiSupport = true; 
-	 device = "nodev";
-   useOSProber = true;
-	}; 
-};
+    efi = {
+      canTouchEfiVariables = true;
+      efiSysMountPoint = "/boot/efi";
+    };
+    grub = {
+      enable = true;
+      efiSupport = true;
+      device = "nodev";
+      useOSProber = true;
+    };
+  };
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -52,18 +55,17 @@
     LC_TELEPHONE = "ja_JP.UTF-8";
     LC_TIME = "ja_JP.UTF-8";
   };
-   # Allow unfree packages
+  # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   # Enable flakes and nix-command
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = ["nix-command" "flakes"];
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-  # Enable the KDE Plasma Desktop Environment.
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
+  # Enable X wayland
+  programs.xwayland.enable = true;
 
   # Configure keymap in X11
   services.xserver = {
@@ -72,7 +74,7 @@
   };
 
   # Enable CUPS to print documents.
-  services.printing.enable = true; 
+  services.printing.enable = true;
 
   # Enable sound with pipewire.
   sound.enable = true;
@@ -96,30 +98,28 @@
   users.users.eggflaw = {
     isNormalUser = true;
     description = "Ozzy";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = ["networkmanager" "wheel"];
     packages = with pkgs; [
       firefox
       kate
-    #  thunderbird
+      #  thunderbird
     ];
   };
 
-    # Enable automatic login for the user.
-  services.xserver.displayManager.autoLogin.enable = true;
+  # Enable automatic login for the user.
+  services.xserver.displayManager.autoLogin.enable = false;
   services.xserver.displayManager.autoLogin.user = "eggflaw";
-
- 
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [ 
+  environment.systemPackages = with pkgs; [
     home-manager
   ];
 
   fonts.packages = with pkgs; [
     noto-fonts
-    noto-fonts-cjk-sans 
-    (nerdfonts.override {fonts = ["JetBrainsMono"]; })
+    noto-fonts-cjk-sans
+    (nerdfonts.override {fonts = ["JetBrainsMono"];})
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -148,5 +148,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.11"; # Did you read the comment?
-
 }
