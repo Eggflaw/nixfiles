@@ -18,7 +18,7 @@
   boot.loader = {
     efi = {
       canTouchEfiVariables = true;
-      efiSysMountPoint = "/boot/efi";
+      efiSysMountPoint = "/boot";
     };
     grub = {
       enable = true;
@@ -114,6 +114,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     home-manager
+    nerd-font-patcher
   ];
 
   fonts.packages = with pkgs; [
@@ -121,6 +122,9 @@
     noto-fonts-cjk-sans
     (nerdfonts.override {fonts = ["JetBrainsMono"];})
   ];
+
+  fonts.fontDir.enable = true;
+  fonts.enableDefaultPackages = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
