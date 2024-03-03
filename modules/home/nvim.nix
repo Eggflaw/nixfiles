@@ -2,14 +2,7 @@
   pkgs,
   config,
   ...
-}: let
-  luau-parser = pkgs.fetchFromGitHub {
-    owner = "polychromatist";
-    repo = "tree-sitter-luau";
-    rev = "34937d73e58bac6aede975c1e30745e74e19feb4";
-    hash = "sha256-iSDOj0coQUkKWl7yIFTUQHH7gvgKQKHZVWSbieadlv4=";
-  };
-in {
+}: {
   programs.neovim = {
     enable = true;
     vimAlias = true;
@@ -23,11 +16,6 @@ in {
 
   xdg.configFile."nvim/lua/custom" = {
     source = ../../config/nvim;
-    recursive = true;
-  };
-
-  home.file."Downloads/tree-sitter-luau" = {
-    source = luau-parser;
     recursive = true;
   };
 

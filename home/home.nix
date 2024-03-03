@@ -40,7 +40,7 @@
     socat
     gh
     (writeShellScriptBin "update-home" ''
-      home-manager switch --flake ~/nixos/#default
+      home-manager switch --flake ~/nixfiles/#default
     '')
   ];
 

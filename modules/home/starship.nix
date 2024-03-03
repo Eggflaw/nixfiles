@@ -13,6 +13,7 @@
         "$directory"
         "[](fg:yellow bg:black)"
         "$time"
+        "$sudo"
         "\n$character"
       ];
 
@@ -41,6 +42,7 @@
         style = "bold fg:black bg:yellow";
         format = "[ $path ]($style)";
         truncation_symbol = "../";
+        home_symbol = " ";
       };
 
       git_branch = {
@@ -59,6 +61,13 @@
         time_format = "%R";
         style = "fg:white";
         format = "[ 󰥔 $time ]($style)";
+      };
+
+      sudo = {
+        style = "fg:white";
+        symbol = "󱑷 ";
+        disabled = false;
+        format = "[ $symbol ]($style)";
       };
     };
   };
