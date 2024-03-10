@@ -9,11 +9,12 @@
         "[](fg:blue bg:green)"
         "$git_branch"
         "$git_status"
-        "[](fg:green bg:yellow)"
+        "[](fg:green bg:red)"
         "$directory"
-        "[](fg:yellow bg:black)"
+        "[](fg:red bg:black)"
         "$time"
         "$sudo"
+        "$nix_shell"
         "\n$character"
       ];
 
@@ -39,8 +40,8 @@
       };
 
       directory = {
-        style = "bold fg:black bg:yellow";
-        format = "[ $path ]($style)";
+        style = "bold fg:black bg:red";
+        format = "[ $path]($style)";
         truncation_symbol = "../";
         home_symbol = " ";
       };
@@ -68,6 +69,12 @@
         symbol = "󱑷 ";
         disabled = false;
         format = "[ $symbol ]($style)";
+      };
+
+      nix_shell = {
+        symbol = "󱄅 ";
+        style = "white";
+        format = "[ $symbol($state) ]($style)";
       };
     };
   };

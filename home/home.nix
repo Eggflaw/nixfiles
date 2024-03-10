@@ -29,6 +29,7 @@
     steam
     spotify
     obs-studio
+    vlc
     neofetch
 
     lutris
