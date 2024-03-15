@@ -3,11 +3,11 @@
   config,
   ...
 }: let
-  luau-parser = pkgs.fetchFromGitHub {
-    owner = "polychromatist";
-    repo = "tree-sitter-luau";
-    rev = "34937d73e58bac6aede975c1e30745e74e19feb4";
-    hash = "sha256-iSDOj0coQUkKWl7yIFTUQHH7gvgKQKHZVWSbieadlv4=";
+  nvchad = pkgs.fetchFromGitHub {
+    owner = "NvChad";
+    repo = "starter";
+    rev = "9d47133ba1433b07e1ac9e32fb110851cf1d6368";
+    hash = "sha256-bQdO88FsBJBcxM43cyabqua9S3gWO/i2O0PL/8ulC7Y=";
   };
 in {
   programs.neovim = {
@@ -16,18 +16,12 @@ in {
     defaultEditor = true;
   };
 
-  xdg.configFile."nvim" = {
-    source = "${pkgs.vimPlugins.nvchad}";
-    recursive = true;
+  xdg.configFile."nvim/init.lua" = {
+    source = "${nvchad}/init.lua"; 
   };
 
-  xdg.configFile."nvim/lua/custom" = {
+  xdg.configFile."nvim/lua" = {
     source = ../../config/nvim;
-    recursive = true;
-  };
-
-  home.file."Downloads/tree-sitter-luau" = {
-    source = luau-parser;
     recursive = true;
   };
 
