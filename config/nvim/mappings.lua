@@ -1,22 +1,25 @@
----@type MappingsTable
-local M = {}
+require("nvchad.mappings")
 
-M.general = {
+local map = vim.keymap.set
+
+local mappings = {
 	n = {
-		[";"] = { ":", "enter command mode", opts = { nowait = true } },
+		[";"] = { ":", { desc = "enter command mode", nowait = true } },
 
 		["<leader>fm"] = {
 			function()
 				require("conform").format()
 			end,
-			"Formatting",
+			{ desc = "Formatting" },
 		},
 	},
 	v = {
-		[">"] = { ">gv", "indent" },
+		[">"] = { ">gv", { desc = "indent" } },
 	},
 }
 
--- more keybinds!
-
-return M
+for mode, maps in pairs(mappings) do
+	for key, val in pairs(maps) do
+		map(mode, key, val[1], val[2])
+	end
+end

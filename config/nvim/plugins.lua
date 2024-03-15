@@ -1,4 +1,4 @@
-local overrides = require("custom.configs.overrides")
+local overrides = require("configs.overrides")
 
 ---@type NvPluginSpec[]
 local plugins = {
@@ -33,8 +33,8 @@ local plugins = {
 	{
 		"neovim/nvim-lspconfig",
 		config = function()
-			require("plugins.configs.lspconfig")
-			require("custom.configs.lspconfig")
+			require('nvchad.configs.lspconfig').defaults()
+			require("configs.lspconfig")
 		end, -- Override to setup mason-lspconfig
 	},
 
@@ -43,7 +43,7 @@ local plugins = {
 		"stevearc/conform.nvim",
 		event = "BufWritePre",
 		config = function()
-			require("custom.configs.conform")
+			require("configs.conform")
 		end,
 	},
 
@@ -85,20 +85,6 @@ local plugins = {
 			require("better_escape").setup()
 		end,
 	},
-
-	-- To make a plugin not be loaded
-	-- {
-	--   "NvChad/nvim-colorizer.lua",
-	--   enabled = false
-	-- },
-
-	-- All NvChad plugins are lazy-loaded by default
-	-- For a plugin to be loaded, you will need to set either `ft`, `cmd`, `keys`, `event`, or set `lazy = false`
-	-- If you want a plugin to load on startup, add `lazy = false` to a plugin spec, for example
-	-- {
-	--   "mg979/vim-visual-multi",
-	--   lazy = false,
-	-- }
 }
 
 return plugins

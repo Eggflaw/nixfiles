@@ -1,5 +1,8 @@
-local on_attach = require("plugins.configs.lspconfig").on_attach
-local capabilities = require("plugins.configs.lspconfig").capabilities
+local configs = require("nvchad.configs.lspconfig")
+
+local on_attach =  configs.on_attach
+local on_init = configs.on_init
+local capabilities = configs.capabilities
 
 local lspconfig = require("lspconfig")
 
@@ -8,6 +11,7 @@ local servers = { "html", "cssls", "tsserver", "clangd", "pylsp", "rust_analyzer
 
 for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup({
+    on_init = on_init,
 		on_attach = on_attach,
 		capabilities = capabilities,
 	})
@@ -15,6 +19,8 @@ end
 
 require("luau-lsp").setup({
 	server = {
+    on_attach = on_attach,
+    capabilities = capabilities,
 		settings = {
 			["luau-lsp"] = {
 				require = {
