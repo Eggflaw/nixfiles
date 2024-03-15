@@ -9,7 +9,8 @@
     rev = "9d47133ba1433b07e1ac9e32fb110851cf1d6368";
     hash = "sha256-bQdO88FsBJBcxM43cyabqua9S3gWO/i2O0PL/8ulC7Y=";
   };
-in {
+in 
+{
   programs.neovim = {
     enable = true;
     vimAlias = true;

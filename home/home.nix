@@ -5,7 +5,7 @@
   ...
 }: {
   imports = [
-    inputs.NvChad.homeManagerModules.default
+    # inputs.NvChad.homeManagerModules.default
     outputs.homeModules
   ];
 
@@ -29,6 +29,7 @@
     steam
     spotify
     obs-studio
+    vlc
     neofetch
 
     lutris
@@ -39,8 +40,10 @@
     pciutils
     socat
     gh
+    wally
+
     (writeShellScriptBin "update-home" ''
-      home-manager switch --flake ~/nixos/#default
+      home-manager switch --flake ~/nixfiles/#default
     '')
   ];
 
