@@ -5,7 +5,7 @@
   ...
 }: {
   imports = [
-    inputs.NvChad.homeManagerModules.default
+    # inputs.NvChad.homeManagerModules.default
     outputs.homeModules
   ];
 
@@ -40,6 +40,8 @@
     pciutils
     socat
     gh
+    wally
+
     (writeShellScriptBin "update-home" ''
       home-manager switch --flake ~/nixfiles/#default
     '')

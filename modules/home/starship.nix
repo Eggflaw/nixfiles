@@ -1,6 +1,7 @@
 {lib, ...}: {
   programs.starship = {
     enable = true;
+    enableZshIntegration = true;
     settings = {
       format = lib.concatStrings [
         "[](bg:black fg:blue)"
