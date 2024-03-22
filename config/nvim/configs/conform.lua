@@ -10,7 +10,7 @@ local options = {
 		html = { "prettierd" },
 
 		sh = { "shfmt" },
-		nix = { "alejandra" },
+		--nix = { "alejandra" },
 	},
 
 	format_on_save = {
