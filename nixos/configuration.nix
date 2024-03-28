@@ -90,7 +90,7 @@
   users.users.eggflaw = {
     isNormalUser = true;
     description = "Ozzy";
-    extraGroups = ["networkmanager" "wheel"];
+    extraGroups = ["networkmanager" "wheel" "libvirtd"];
     shell = pkgs.zsh;
     useDefaultShell = false;
     packages = with pkgs; [

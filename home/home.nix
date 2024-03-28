@@ -27,6 +27,7 @@
     floorp
     discord
     steam
+    gamescope
     spotify
     obs-studio
     vlc

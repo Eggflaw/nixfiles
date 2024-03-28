@@ -4,7 +4,9 @@
     ./ios.nix
     ./flatpak.nix
     ./nix-ld.nix
-    ./virtualisation.nix
+    ./waydroid.nix
+    ./virt-manager.nix
+    ./storage_optimization.nix
     ./plasma.nix
     ./fcitx5.nix
   ];
