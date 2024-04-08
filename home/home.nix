@@ -10,6 +10,7 @@
   ];
 
   nixpkgs.overlays = [
+    inputs.neovim-nightly-overlay.overlay
     outputs.overlays.additions
     outputs.overlays.modifications
   ];

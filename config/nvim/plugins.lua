@@ -22,18 +22,17 @@ local plugins = {
 
 	{
 		"lopi-py/luau-lsp.nvim",
-		lazy = false,
+		ft = "luau",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 		},
 	},
-
 	-- Override plugin definition options
 
 	{
 		"neovim/nvim-lspconfig",
 		config = function()
-			require('nvchad.configs.lspconfig').defaults()
+			require("nvchad.configs.lspconfig").defaults()
 			require("configs.lspconfig")
 		end, -- Override to setup mason-lspconfig
 	},

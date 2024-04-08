@@ -8,6 +8,7 @@
     ./virt-manager.nix
     ./storage_optimization.nix
     ./plasma.nix
+    ./docker.nix
     ./fcitx5.nix
   ];
 }

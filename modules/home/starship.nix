@@ -2,7 +2,10 @@
   programs.starship = {
     enable = true;
     enableZshIntegration = true;
+    enableBashIntegration = true; 
     settings = {
+      command_timeout = 1000;
+
       format = lib.concatStrings [
         "[](bg:black fg:blue)"
         "$os"

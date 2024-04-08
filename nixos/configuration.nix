@@ -23,9 +23,9 @@
     grub = {
       enable = true;
       efiSupport = true;
-      device = "nodev";
+      device = "nodev" ;
       useOSProber = true;
-    };
+          };
   };
 
   networking.hostName = "nixos"; # Define your hostname.
@@ -90,7 +90,7 @@
   users.users.eggflaw = {
     isNormalUser = true;
     description = "Ozzy";
-    extraGroups = ["networkmanager" "wheel" "libvirtd"];
+    extraGroups = ["networkmanager" "wheel" "libvirtd" "docker"];
     shell = pkgs.zsh;
     useDefaultShell = false;
     packages = with pkgs; [

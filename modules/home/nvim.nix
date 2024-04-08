@@ -15,6 +15,7 @@ in {
     vimAlias = true;
     viAlias = true;
     defaultEditor = true;
+    package = pkgs.neovim-nightly;
   };
 
   xdg.configFile."nvim/init.lua" = {
@@ -22,7 +23,7 @@ in {
   };
 
   xdg.configFile."nvim/lua" = {
-    source = ../../config/nvim; # Path to your custom config
+    source = ../../config/nvim;
     recursive = true;
   };
 
