@@ -32,7 +32,7 @@ local plugins = {
 		"mfussenegger/nvim-lint",
 		event = { "BufReadPost", "BufWritePost", "BufNewFile" },
 		config = function()
-			require("config.lint")
+			require("configs.lint")
 		end,
 	},
 

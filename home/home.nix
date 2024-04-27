@@ -42,8 +42,7 @@
     wget
     pciutils
     socat
-    gh
-    wally
+    gh 
 
     (writeShellScriptBin "update-home" ''
       home-manager switch --flake ~/nixfiles/#default

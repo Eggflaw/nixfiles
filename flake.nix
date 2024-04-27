@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nur.url = "github:nix-community/NUR";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -16,6 +17,7 @@
     self,
     nixpkgs,
     home-manager,
+    nur,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -47,6 +49,7 @@
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [
           ./home/home.nix
+          nur.hmModules.nur
         ];
       };
     };

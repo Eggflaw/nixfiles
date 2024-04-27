@@ -42,6 +42,7 @@ in {
     lua-language-server
     stylua
     selene
+    config.nur.repos.eggflaw.luau-lsp
 
     # Python
     python311Packages.python-lsp-server
