@@ -27,6 +27,7 @@
   home.packages = with pkgs; [
     floorp
     discord
+    vesktop
     steam
     gamescope
     spotify

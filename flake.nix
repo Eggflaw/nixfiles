@@ -32,7 +32,7 @@
 
     # NixOs configuration
     nixosConfigurations = {
-      default = nixpkgs.lib.nixosSystem {
+      nixos = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
           ./nixos/configuration.nix

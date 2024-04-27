@@ -23,7 +23,7 @@ in {
   };
 
   xdg.configFile."nvim/lua" = {
-    source = ../../config/nvim;
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixfiles/config/nvim";
     recursive = true;
   };
 
@@ -51,6 +51,7 @@ in {
 
     # Rust
     rust-analyzer
+    rustfmt
 
     # nix
     nil

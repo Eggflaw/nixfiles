@@ -5,9 +5,10 @@ local on_init = configs.on_init
 local capabilities = configs.capabilities
 
 local lspconfig = require("lspconfig")
+local util = require("lspconfig/util")
 
 -- if you just want default config for the servers then put them in a table
-local servers = { "html", "cssls", "tsserver", "clangd", "pylsp", "rust_analyzer", "nil_ls" }
+local servers = { "html", "cssls", "tsserver", "clangd", "pylsp", "nil_ls" }
 
 for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup({

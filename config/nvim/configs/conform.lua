@@ -5,6 +5,8 @@ local options = {
 		lua = { "stylua" },
 		luau = { "stylua" },
 
+		rust = { "rustfmt" },
+
 		javascript = { "prettierd" },
 		css = { "prettierd" },
 		html = { "prettierd" },

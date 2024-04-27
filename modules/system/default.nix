@@ -9,6 +9,6 @@
     ./storage_optimization.nix
     ./plasma.nix
     ./docker.nix
-    ./fcitx5.nix
+    ./ime.nix
   ];
 }

@@ -27,6 +27,21 @@ local plugins = {
 			"nvim-lua/plenary.nvim",
 		},
 	},
+
+	{
+		"mfussenegger/nvim-lint",
+		event = { "BufReadPost", "BufWritePost", "BufNewFile" },
+		config = function()
+			require("config.lint")
+		end,
+	},
+
+	{
+		"mrcjkb/rustaceanvim",
+		version = "^4",
+		ft = { "rust" },
+	},
+
 	-- Override plugin definition options
 
 	{
