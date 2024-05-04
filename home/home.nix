@@ -26,13 +26,13 @@
   # environment.
   home.packages = with pkgs; [
     floorp
-    discord
-    vesktop
+    discord 
     steam
     gamescope
     spotify
     obs-studio
     vlc
+    godot_4
     neofetch
 
     lutris

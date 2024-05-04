@@ -11,6 +11,12 @@ return {
     },
   },
 
+  dev = {
+    path = "~/Projects",
+    patterns = { "Eggflaw" },
+    fallback = true,
+  },
+
   performance = {
     rtp = {
       disabled_plugins = {
