@@ -21,14 +21,30 @@ local plugins = {
 
   {
     "rcarriga/nvim-notify",
-    event = "VimEnter",
+    event = "VeryLazy",
+    keys = {
+      {
+        "<leader>un",
+        function()
+          require("notify").dismiss { silent = true, pending = true }
+        end,
+        desc = "Dismiss All Notifications",
+      },
+    },
+    init = function(_)
+      vim.notify = require "notify"
+    end,
   },
 
   {
     "lopi-py/luau-lsp.nvim",
     ft = "luau",
+    config = function(_)
+      require "configs.luau-lsp"
+    end,
     dependencies = {
       "nvim-lua/plenary.nvim",
+      "neovim/nvim-lspconfig",
     },
   },
 

@@ -23,9 +23,7 @@
     inherit (self) outputs;
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
-  in {
-    # packages = forAllSystems (system: import ./pkgs {inherit nixpkgs;} );
-
+  in { 
     nixosSystemModules = import ./modules/system;
 
     homeModules = import ./modules/home;
