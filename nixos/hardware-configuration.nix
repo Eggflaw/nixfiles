@@ -13,14 +13,14 @@
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
+    fileSystems."/boot" =
+      { device = "/dev/disk/by-uuid/7F88-9680";
+        fsType = "vfat";
+      };
+
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/57a466b6-86d4-4727-8292-0fe955808fca";
       fsType = "ext4";
-    };
-
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/7F88-9680";
-      fsType = "vfat";
     };
 
   fileSystems."/home" =

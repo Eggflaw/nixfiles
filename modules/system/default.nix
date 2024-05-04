@@ -10,5 +10,6 @@
     ./plasma.nix
     ./docker.nix
     ./ime.nix
+    ./cachix.nix
   ];
 }
