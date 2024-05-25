@@ -42,7 +42,7 @@
 
     # Home manager configuration
     homeConfigurations = {
-      default = home-manager.lib.homeManagerConfiguration {
+      eggflaw = home-manager.lib.homeManagerConfiguration {
         pkgs = pkgs;
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [

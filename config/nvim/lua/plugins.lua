@@ -49,6 +49,14 @@ local plugins = {
   },
 
   {
+    dir = "~/Projects/rbx-utils.nvim",
+    ft = "luau",
+    config = function()
+      require("rbx-utils").setup()
+    end,
+  },
+
+  {
     "mfussenegger/nvim-lint",
     event = { "BufReadPost", "BufWritePost", "BufNewFile" },
     config = function()
