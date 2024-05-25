@@ -9,7 +9,7 @@
     vimAlias = true;
     viAlias = true;
     defaultEditor = true;
-    package = pkgs.neovim-nightly;
+    package = pkgs.neovim;
   };
 
 

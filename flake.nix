@@ -1,6 +1,17 @@
 {
   description = "Nixos config flake";
 
+  nixConfig = {
+    extra-substituters = [
+      "https://eggflaw-nur.cachix.org"
+      "https://nix-community.cachix.org"
+    ];
+    extra-trusted-public-keys = [
+      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      "eggflaw-nur.cachix.org-1:bQl+ZeD9iuaaR9DpHdUUHtOwoTAdnGCjNLbDUnwtGjs="
+    ];
+  };
+
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nur.url = "github:nix-community/NUR";
